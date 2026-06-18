@@ -302,23 +302,6 @@
     <tr><td>Net per verified booking</td><td>~$68 + a new traveler</td></tr>
   </table>
   <p class="lead" style="margin-top:22px;font-size:15px">Budget cap set upfront. No pay for clicks, browsers, or abandoned carts. Billing stops on refund — you never pay for a booking that didn’t hold.</p>
-  <div class="calc">
-    <h3>Try your numbers</h3>
-    <div class="sl">
-      <label><span>Verified bookings / month</span><b id="vBookings">300 bookings</b></label>
-      <input type="range" id="rBookings" min="50" max="1000" step="10" value="300">
-    </div>
-    <div class="sl">
-      <label><span>Average ancillary value</span><b id="vValue">$90</b></label>
-      <input type="range" id="rValue" min="40" max="200" step="5" value="90">
-    </div>
-    <div class="calc-out">
-      <div class="co"><span>Ancillary revenue / mo</span><b id="oGross">—</b></div>
-      <div class="co"><span>PA cost / mo</span><b id="oCost">—</b></div>
-      <div class="co m"><span>You keep / mo</span><b id="oNet">—</b></div>
-    </div>
-    <p class="note" style="margin-top:12px">~$22 PA cost per verified booking (subscription coverage + fee), charged only on completed, paid, non-refunded bookings. Non-booking traffic costs $0.</p>
-  </div>
 </section>
 
 <!-- block 8 · pilot -->
@@ -394,23 +377,6 @@ function phPlaceholder(name){
   document.getElementById('prev').onclick=function(){show(cur-1)};
   document.getElementById('phone').onclick=function(){show(cur+1)};
   dots.forEach(function(d,k){d.onclick=function(){show(k)}});
-})();
-
-// calculator
-(function(){
-  var rB=document.getElementById('rBookings'), rV=document.getElementById('rValue');
-  var PA_FEE=22;
-  function fmt(n){return '$'+Math.round(n).toLocaleString('en-US')}
-  function calc(){
-    var bookings=+rB.value, value=+rV.value;
-    document.getElementById('vBookings').textContent=bookings+' bookings';
-    document.getElementById('vValue').textContent='$'+value;
-    var gross=bookings*value, cost=bookings*PA_FEE, net=gross-cost;
-    document.getElementById('oGross').textContent=fmt(gross);
-    document.getElementById('oCost').textContent=fmt(cost);
-    document.getElementById('oNet').textContent=fmt(net);
-  }
-  rB.oninput=calc; rV.oninput=calc; calc();
 })();
 </script>
 </body>
