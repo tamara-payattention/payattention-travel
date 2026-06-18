@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<!-- internal draft v1 (travel) · confirm e-SIM partner naming + economics before sending · do not publish until clearance -->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<title>PayAttention × Travel — Verified Bookings</title>
+<style>
+  :root{
+    --ink:#0f1115; --muted:#5b6472; --line:#e6e9ee; --bg:#ffffff; --soft:#f6f7f9;
+    --accent:#4f55f1; --accent-soft:#eef0fe; --good:#0fa36b; --bad:#d4574e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased}
+  section{max-width:880px;margin:0 auto;padding:88px 24px}
+  section + section{border-top:1px solid var(--line)}
+  h1{font-size:clamp(30px,5vw,46px);line-height:1.12;letter-spacing:-.02em;font-weight:700}
+  h2{font-size:clamp(22px,3.4vw,30px);line-height:1.2;letter-spacing:-.015em;font-weight:700;margin-bottom:14px}
+  p.lead{font-size:18px;color:var(--muted);max-width:620px}
+  .kicker{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+  .note{font-size:13px;color:var(--muted)}
+
+  /* hero */
+  .hero{padding-top:110px}
+  .hero p.lead{margin-top:18px}
+
+  .flow{margin-top:56px;display:flex;align-items:flex-start;justify-content:space-between;position:relative;max-width:760px}
+  .flow::before{content:"";position:absolute;top:21px;left:6%;right:6%;height:2px;background:var(--line)}
+  .flow .dotline{position:absolute;top:17px;left:6%;width:10px;height:10px;border-radius:50%;background:var(--accent);animation:travel 6s linear infinite}
+  @keyframes travel{0%{left:6%;opacity:0}6%{opacity:1}94%{opacity:1}100%{left:calc(94% - 10px);opacity:0}}
+  .node{position:relative;z-index:1;width:19%;text-align:center}
+  .node .pin{width:44px;height:44px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:19px}
+  .node span{font-size:12.5px;color:var(--muted);display:block;line-height:1.35}
+
+  /* problem visual */
+  .twins{display:flex;gap:18px;margin-top:40px;flex-wrap:wrap}
+  .twin{flex:1;min-width:240px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .twin .face{font-size:34px}
+  .twin h4{font-size:15px;margin:10px 0 6px}
+  .twin p{font-size:13.5px;color:var(--muted)}
+  .twin.bad h4{color:var(--bad)} .twin.good h4{color:var(--good)}
+  .caption{margin-top:14px;font-size:13px;color:var(--muted);font-style:italic}
+
+  /* how it works */
+  .how{display:flex;gap:48px;margin-top:36px;align-items:flex-start;flex-wrap:wrap}
+  .steps{flex:1;min-width:280px;counter-reset:step}
+  .step{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step .n{counter-increment:step;flex:none;width:28px;height:28px;border-radius:50%;background:var(--soft);border:1px solid var(--line);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center}
+  .step .n::before{content:counter(step)}
+  .step p{font-size:14.5px}
+
+  /* phone with real screenshots */
+  .phone-wrap{flex:none;width:290px;margin:0 auto}
+  .phone{width:270px;height:560px;border:2px solid var(--ink);border-radius:36px;background:#0f1115;box-shadow:0 18px 50px rgba(15,17,21,.10);position:relative;overflow:hidden;margin:0 auto}
+  .shot{position:absolute;inset:0;display:none;background:#fff}
+  .shot.on{display:block}
+  .shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+  .shot .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;background:var(--soft);color:var(--muted);font-size:13px;text-align:center;padding:20px}
+  .shot .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(15,17,21,.78);color:#fff;font-size:12px;padding:8px 14px;text-align:center}
+  .phone-nav{display:flex;justify-content:center;gap:8px;margin-top:16px;align-items:center}
+  .pdot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}
+  .pdot.on{background:var(--accent)}
+  .phone-nav button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:5px 12px;cursor:pointer;font-size:13px}
+  .tap-hint{text-align:center;font-size:12px;color:var(--muted);margin-top:8px}
+
+  /* block 4 side-by-side */
+  .ab-pair{display:flex;gap:18px;margin-top:36px;flex-wrap:wrap;max-width:720px}
+  .ab-card{flex:1;min-width:250px;border:1px solid var(--line);border-radius:14px;padding:26px;background:var(--soft)}
+  .ab-card.win{border-color:var(--good);background:#f2faf6}
+  .ab-card .big{font-size:22px;font-weight:700;margin-bottom:8px}
+  .ab-card p{font-size:14px;color:var(--muted)}
+  .ab-card .verdict{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:5px;padding:3px 8px;margin-bottom:12px}
+  .ab-card.lose .verdict{background:#fbeeed;color:var(--bad)}
+  .ab-card.win .verdict{background:#e2f4ec;color:var(--good)}
+  .closed{display:flex;gap:18px;margin-top:26px;flex-wrap:wrap;max-width:720px}
+  .closed .c{flex:1;min-width:240px;border:1px solid var(--line);border-radius:14px;padding:20px;font-size:14px}
+  .closed .c b{display:block;margin-bottom:6px;font-size:14.5px}
+  .closed .c.no b{color:var(--bad);text-decoration:line-through}
+  .closed .c.yes b{color:var(--good)}
+  .closed .c p{color:var(--muted);font-size:13.5px}
+
+  /* attribution timeline (block 5) */
+  .tl-box{margin-top:34px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:30px 26px;max-width:680px}
+  .tl{display:flex;align-items:flex-start;position:relative;justify-content:space-between}
+  .tl::before{content:"";position:absolute;top:13px;left:8%;right:8%;height:2px;background:#cfd4dc}
+  .tl .ev{position:relative;z-index:1;width:30%;text-align:center}
+  .tl .ev .dot{width:28px;height:28px;border-radius:50%;margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-size:13px;background:#fff;border:2px solid var(--accent);color:var(--accent);font-weight:700}
+  .tl .ev.last .dot{background:var(--good);border-color:var(--good);color:#fff}
+  .tl .ev b{display:block;font-size:13.5px;margin-bottom:3px}
+  .tl .ev span{font-size:12px;color:var(--muted);line-height:1.4;display:block}
+  .tl-note{margin-top:22px;font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+
+  /* case study (block 6) */
+  .case-box{margin-top:34px;border:1px solid var(--line);border-radius:16px;padding:30px 28px;background:linear-gradient(180deg,var(--accent-soft),#fff);max-width:760px}
+  .case-head{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+  .case-head .logo{width:40px;height:40px;border-radius:11px;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px}
+  .case-head .badge{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:#fff;border:1px solid var(--line);border-radius:6px;padding:4px 9px}
+  .case-head b{font-size:16px}
+  .case-box p.case-lead{font-size:15px;color:var(--ink);max-width:660px;margin-bottom:4px}
+  .case-grid{display:flex;gap:14px;margin-top:22px;flex-wrap:wrap}
+  .case-grid .ci{flex:1;min-width:165px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+  .case-grid .ci .ico{font-size:22px}
+  .case-grid .ci b{display:block;font-size:14px;margin:9px 0 5px}
+  .case-grid .ci span{font-size:13px;color:var(--muted);line-height:1.45}
+  .case-foot{margin-top:18px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+
+  /* economics */
+  table.eco{width:100%;max-width:640px;border-collapse:collapse;margin-top:26px;font-size:15px}
+  table.eco td{padding:12px 8px;border-bottom:1px solid var(--line)}
+  table.eco td:last-child{text-align:right;font-weight:600;white-space:nowrap}
+  .calc{margin-top:38px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:26px;max-width:640px}
+  .calc h3{font-size:16px;margin-bottom:18px}
+  .sl{margin-bottom:18px}
+  .sl label{display:flex;justify-content:space-between;font-size:13.5px;color:var(--muted);margin-bottom:6px}
+  .sl label b{color:var(--ink)}
+  input[type=range]{width:100%;accent-color:var(--accent)}
+  .calc-out{display:flex;gap:14px;margin-top:8px;flex-wrap:wrap}
+  .co{flex:1;min-width:140px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px}
+  .co span{font-size:12px;color:var(--muted);display:block}
+  .co b{font-size:20px}
+  .co.m b{color:var(--good)}
+
+  /* pilot */
+  .pilot{margin-top:30px;border:1px solid var(--line);border-radius:14px;padding:26px;max-width:640px}
+  .pilot li{list-style:none;padding:8px 0 8px 30px;position:relative;font-size:14.5px;border-bottom:1px solid var(--line)}
+  .pilot li:last-child{border-bottom:none}
+  .pilot li::before{content:"✓";position:absolute;left:2px;color:var(--good);font-weight:700}
+
+  /* next */
+  .cards{display:flex;gap:16px;margin-top:30px;flex-wrap:wrap}
+  .card{flex:1;min-width:220px;border:1px solid var(--line);border-radius:14px;padding:22px}
+  .card .tag{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);background:var(--soft);border-radius:5px;padding:3px 8px;display:inline-block;margin-bottom:12px}
+  .card b{display:block;font-size:15px;margin-bottom:6px}
+  .card p{font-size:13.5px;color:var(--muted)}
+
+  /* faq */
+  details{border-bottom:1px solid var(--line);max-width:680px}
+  details summary{padding:16px 0;font-size:15px;font-weight:600;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  details summary::after{content:"+";font-size:20px;color:var(--muted);font-weight:400}
+  details[open] summary::after{content:"–"}
+  details div{padding:0 0 16px;font-size:14.5px;color:var(--muted);max-width:600px}
+
+  .contact{padding-bottom:120px}
+  .contact .who{margin:24px 0 20px;font-size:15.5px}
+  .contact a.mail{font-size:20px;font-weight:700;color:var(--accent);text-decoration:none}
+
+  footer{border-top:1px solid var(--line);padding:24px;text-align:center;font-size:12px;color:var(--muted)}
+  @media(max-width:640px){section{padding:60px 20px}.hero{padding-top:72px}}
+</style>
+</head>
+<body>
+
+<!-- block 1 · hero -->
+<section class="hero">
+  <div class="kicker">PayAttention × Travel · pilot proposal</div>
+  <h1>Verified travel bookings.<br>You pay per completed booking — never per click.</h1>
+  <p class="lead">PayAttention brings travel brands new, high-intent travelers who complete a real, paid action — a seat upgrade, a room upgrade, an e-SIM — inside partner-app paywalls. Billed only when the booking actually happens.</p>
+  <div class="flow">
+    <div class="dotline"></div>
+    <div class="node"><div class="pin">🧱</div><span>paywall offer</span></div>
+    <div class="node"><div class="pin">✈️</div><span>sponsored upgrade</span></div>
+    <div class="node"><div class="pin">💺</div><span>booking completed</span></div>
+    <div class="node"><div class="pin">▶️</div><span>subscription covered</span></div>
+    <div class="node"><div class="pin">🔁</div><span>repeats each trip</span></div>
+  </div>
+</section>
+
+<!-- block 2 · problem -->
+<section>
+  <div class="kicker">Problem</div>
+  <h2>A browser and a booker look identical at the ad click.</h2>
+  <p class="lead">Performance ads bill you per click and per impression. You pay for travelers who compare, abandon, and never book. Coupon and deal sites bring discount-hunters who cancel. Either way, you pay before the booking exists.</p>
+  <div class="twins">
+    <div class="twin good"><div class="face">🙂</div><h4>High-intent traveler</h4><p>Books the upgrade, takes the trip, comes back. Margin on every ancillary.</p></div>
+    <div class="twin bad"><div class="face">🙂</div><h4>Comparison browser</h4><p>Clicks the ad, abandons the cart. Same click cost to you.</p></div>
+  </div>
+  <p class="caption">You paid the same for both.</p>
+</section>
+
+<!-- block 3 · how it works -->
+<section id="how">
+  <div class="kicker">How it works</div>
+  <h2>Payment moves from the click to the completed booking.</h2>
+  <div class="how">
+    <div class="steps">
+      <div class="step"><div class="n"></div><p>A traveler hits a subscription paywall in a partner app and rejects the price.</p></div>
+      <div class="step"><div class="n"></div><p>Our offer: “Upgrade your seat — and your subscription is covered for the trip.”</p></div>
+      <div class="step"><div class="n"></div><p>The traveler completes a real booking in your existing flow — seat upgrade, room upgrade, or e-SIM. We build no booking rails and never touch the payment.</p></div>
+      <div class="step"><div class="n"></div><p>You verify on your side: booking completed → paid → not refunded. Attribution by unique code, with traveler consent.</p></div>
+      <div class="step"><div class="n"></div><p>You pay per verified booking. Cancelled or refunded → no charge.</p></div>
+    </div>
+    <div class="phone-wrap">
+      <div class="phone" id="phone">
+        <div class="shot on" data-cap="Paywall: sponsored offer, $0 instead of the price">
+          <img src="img/screen-01.png" alt="" onerror="this.replaceWith(phPlaceholder('screen-01.png'))">
+          <div class="cap">Paywall: sponsored offer, $0 instead of the price</div>
+        </div>
+        <div class="shot">
+          <img src="img/screen-02.png" alt="" onerror="this.replaceWith(phPlaceholder('screen-02.png'))">
+          <div class="cap">Checkout: $0 today, card saved as backup</div>
+        </div>
+        <div class="shot">
+          <img src="img/screen-03.png" alt="" onerror="this.replaceWith(phPlaceholder('screen-03.png'))">
+          <div class="cap">No charge today — 24h to complete the action</div>
+        </div>
+        <div class="shot">
+          <img src="img/screen-04.png" alt="" onerror="this.replaceWith(phPlaceholder('screen-04.png'))">
+          <div class="cap">Sponsored actions — seat upgrade as best offer</div>
+        </div>
+        <div class="shot">
+          <img src="img/screen-05.png" alt="" onerror="this.replaceWith(phPlaceholder('screen-05.png'))">
+          <div class="cap">Travel task: upgrade your seat, activate your e-SIM</div>
+        </div>
+        <div class="shot">
+          <img src="img/screen-06.png" alt="" onerror="this.replaceWith(phPlaceholder('screen-06.png'))">
+          <div class="cap">Verified → confirmed → subscription covered</div>
+        </div>
+      </div>
+      <div class="phone-nav">
+        <button id="prev">←</button>
+        <span class="pdot on"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span><span class="pdot"></span>
+        <button id="next">→</button>
+      </div>
+      <div class="tap-hint">live product screens — tap through</div>
+    </div>
+  </div>
+</section>
+
+<!-- block 4 · cohort quality -->
+<section>
+  <div class="kicker">Cohort quality</div>
+  <h2>Why this brings bookers, not coupon-hunters.</h2>
+  <p class="lead">Same spend, different psychology. Covering a subscription pulls travelers who were going to book anyway — not people hunting a discount code.</p>
+  <div class="ab-pair">
+    <div class="ab-card lose">
+      <span class="verdict">typical promo</span>
+      <div class="big">“€20 off your booking”</div>
+      <p>Attracts anyone who wants €20 off. They’d have booked cheaper elsewhere, or not at all. Worse cohort, same cost.</p>
+    </div>
+    <div class="ab-card win">
+      <span class="verdict">our offer</span>
+      <div class="big">“Your subscription, covered for the trip”</div>
+      <p>Feels bigger than a coupon (mental accounting). Costs you only when a real, paid booking completes.</p>
+    </div>
+  </div>
+  <div class="closed">
+    <div class="c no"><b>Public discount codes</b><p>No open-internet codes like “TRAVEL20”. We never run them — they leak, get farmed, and erode your fares.</p></div>
+    <div class="c yes"><b>Closed partner flows only</b><p>The offer appears only inside partner apps, behind a paywall. You approve every traffic partner and every screen where your brand appears.</p></div>
+  </div>
+</section>
+
+<!-- block 5 · attribution -->
+<section>
+  <div class="kicker">Attribution</div>
+  <h2>Not a coincidence — and you can see it in your own booking events.</h2>
+  <p class="lead">We ask the traveler to complete the booking within 24h of opening your flow with our code. Your booking engine already fires the confirmation event. Flow opened with our code + booking confirmed in the window = a traveler we brought, not one who wandered in.</p>
+  <div class="tl-box">
+    <div class="tl">
+      <div class="ev"><div class="dot">0</div><b>Hour 0</b><span>Your flow opened with PA attribution code</span></div>
+      <div class="ev"><div class="dot">≤24</div><b>Within 24h</b><span>Booking confirmed — your engine fires the event</span></div>
+      <div class="ev last"><div class="dot">✓</div><b>Attributed</b><span>Billable only on a paid, non-refunded booking</span></div>
+    </div>
+    <div class="tl-note">A refund or cancellation inside the window → we don’t bill. Your data, your events, verifiable on your side. No traveler-level data access required.</div>
+  </div>
+</section>
+
+<!-- block 6 · case study (e-SIM) -->
+<section>
+  <div class="kicker">Live integration</div>
+  <h2>First travel integration: instant, verifiable, repeatable.</h2>
+  <p class="lead">An e-SIM activation is the cleanest possible verified action — which is why it’s our first travel integration and the template for the rest.</p>
+  <div class="case-box">
+    <div class="case-head">
+      <div class="logo">📶</div>
+      <b>PayAttention × e-SIM partner</b>
+      <span class="badge">integration in progress</span>
+    </div>
+    <p class="case-lead">A traveler about to pay for a partner-app subscription activates a data plan with our e-SIM partner for their trip instead. The plan is the verified action — confirmed the moment it activates — and the traveler lands abroad already connected, with their subscription covered.</p>
+    <div class="case-grid">
+      <div class="ci"><div class="ico">⚡</div><b>Instant verification</b><span>Activation is a clean, immediate event. No 24h wait, no refund ambiguity.</span></div>
+      <div class="ci"><div class="ico">🔁</div><b>Repeatable</b><span>Travelers buy a new plan every trip — not once a year like a flight.</span></div>
+      <div class="ci"><div class="ico">💧</div><b>Digital margin</b><span>No inventory, no seat to give up. The highest-margin action in travel.</span></div>
+      <div class="ci"><div class="ico">🌍</div><b>Universal</b><span>Every traveler needs data abroad — on any airline, any hotel, any route.</span></div>
+    </div>
+    <div class="case-foot">First cohort being scoped now. The same verified-action mechanic ports directly to seat upgrades, room upgrades, lounge access and insurance.</div>
+  </div>
+</section>
+
+<!-- block 7 · economics -->
+<section>
+  <div class="kicker">Economics</div>
+  <h2>You collect the booking. You pay us only when it sticks.</h2>
+  <table class="eco">
+    <tr><td>Average verified booking (ancillary)</td><td>~$90 <span class="note">— seat / room upgrade; e-SIM lower</span></td></tr>
+    <tr><td>Booking revenue</td><td>yours <span class="note">— you collect it directly</span></td></tr>
+    <tr><td>PA cost per verified booking</td><td>~$22 <span class="note">(subscription coverage ~$15 + PA fee ~$7)</span></td></tr>
+    <tr><td>You pay for non-booking traffic</td><td>$0</td></tr>
+    <tr><td>Refunded / cancelled booking</td><td>$0 <span class="note">— billed only past the refund window</span></td></tr>
+    <tr><td>Net per verified booking</td><td>~$68 + a new traveler</td></tr>
+  </table>
+  <p class="lead" style="margin-top:22px;font-size:15px">Budget cap set upfront. No pay for clicks, browsers, or abandoned carts. Billing stops on refund — you never pay for a booking that didn’t hold.</p>
+  <div class="calc">
+    <h3>Try your numbers</h3>
+    <div class="sl">
+      <label><span>Verified bookings / month</span><b id="vBookings">300 bookings</b></label>
+      <input type="range" id="rBookings" min="50" max="1000" step="10" value="300">
+    </div>
+    <div class="sl">
+      <label><span>Average ancillary value</span><b id="vValue">$90</b></label>
+      <input type="range" id="rValue" min="40" max="200" step="5" value="90">
+    </div>
+    <div class="calc-out">
+      <div class="co"><span>Ancillary revenue / mo</span><b id="oGross">—</b></div>
+      <div class="co"><span>PA cost / mo</span><b id="oCost">—</b></div>
+      <div class="co m"><span>You keep / mo</span><b id="oNet">—</b></div>
+    </div>
+    <p class="note" style="margin-top:12px">~$22 PA cost per verified booking (subscription coverage + fee), charged only on completed, paid, non-refunded bookings. Non-booking traffic costs $0.</p>
+  </div>
+</section>
+
+<!-- block 8 · pilot -->
+<section>
+  <div class="kicker">Pilot</div>
+  <h2>Small, bounded, measurable.</h2>
+  <div class="pilot">
+    <ul>
+      <li>One market / one route / one property cluster · 50–300 verified bookings</li>
+      <li>Verified action: your flow opened with our code + booking completed within 24h + paid + not refunded</li>
+      <li>Verification fully on your side — your booking events, no third-party data access</li>
+      <li>Pay-per-verified-booking · hard budget cap</li>
+      <li>~one booking cycle · success bar set by you</li>
+    </ul>
+  </div>
+</section>
+
+<!-- block 9 · next -->
+<section>
+  <div class="kicker">After the pilot</div>
+  <h2>Upgrades are the first verified action, not the last.</h2>
+  <div class="cards">
+    <div class="card"><span class="tag">post-pilot</span><b>Ancillary bundle</b><p>Bags, lounge access, fast-track, insurance — sold on the same verified-action rail.</p></div>
+    <div class="card"><span class="tag">post-pilot</span><b>e-SIM, every trip</b><p>Repeatable data-plan activations on each journey. Exploratory recurring revenue.</p></div>
+    <div class="card"><span class="tag">post-pilot</span><b>Loyalty &amp; rebooking</b><p>Loyalty sign-ups and repeat bookings, attributed on the same rail.</p></div>
+  </div>
+</section>
+
+<!-- block 10 · faq -->
+<section>
+  <div class="kicker">FAQ</div>
+  <h2>The questions you’re about to ask</h2>
+  <details><summary>Can travelers fake the booking?</summary><div>You define what counts — completed, paid, not refunded. Your booking engine, your rules. We accept your definition of “verified”.</div></details>
+  <details><summary>Are these travelers worth anything to us?</summary><div>The verified action is a paid booking — it self-selects real travelers. Minimum booking value is set by you.</div></details>
+  <details><summary>Where does your traffic come from?</summary><div>Partner apps only, behind paywalls. You approve every traffic partner and every screen where your brand appears.</div></details>
+  <details><summary>How do you prove these bookings aren’t organic?</summary><div>Your flow opened with our attribution code + booking confirmed within 24h — both events on your side. Organic browsers don’t do that inside the window. Outside it, we don’t bill.</div></details>
+  <details><summary>What about refunds and cancellations?</summary><div>Not billed. We only charge on bookings that complete, pay, and hold past the refund window.</div></details>
+  <details><summary>What data do you need from us?</summary><div>Booking confirmed/refunded per attribution code. No traveler-level data access.</div></details>
+  <details><summary>Who pays for the covered subscription?</summary><div>We do, out of the per-booking fee, via our payment rail. No cash ever reaches the traveler.</div></details>
+</section>
+
+<!-- block 11 · contact -->
+<section class="contact">
+  <div class="kicker">Contact</div>
+  <h2>Let’s agree the definition of “verified” — then we start.</h2>
+  <p class="who"><b>Andrey Monastyrskiy</b> — Co-Founder &amp; CEO. Founded and sold a B2B2C startup to X5 ($700M+ GMV).<br>
+  <span class="note">Pilot = mutual validation, not an enterprise rollout.</span></p>
+  <a class="mail" href="mailto:andrew@payattention.now">andrew@payattention.now</a>
+</section>
+
+<footer>PayAttention · travel pilot proposal · numbers are working assumptions to be validated in pilot</footer>
+
+<script>
+// placeholder for missing screenshots
+function phPlaceholder(name){
+  var d=document.createElement('div');
+  d.className='ph';
+  d.innerHTML='<div style="font-size:30px">📱</div><div>drop <b>'+name+'</b><br>into the img/ folder</div>';
+  return d;
+}
+
+// phone walkthrough
+(function(){
+  var shots=document.querySelectorAll('#phone .shot');
+  var dots=document.querySelectorAll('.pdot');
+  var cur=0;
+  function show(i){
+    cur=(i+shots.length)%shots.length;
+    shots.forEach(function(s,k){s.classList.toggle('on',k===cur)});
+    dots.forEach(function(d,k){d.classList.toggle('on',k===cur)});
+  }
+  document.getElementById('next').onclick=function(){show(cur+1)};
+  document.getElementById('prev').onclick=function(){show(cur-1)};
+  document.getElementById('phone').onclick=function(){show(cur+1)};
+  dots.forEach(function(d,k){d.onclick=function(){show(k)}});
+})();
+
+// calculator
+(function(){
+  var rB=document.getElementById('rBookings'), rV=document.getElementById('rValue');
+  var PA_FEE=22;
+  function fmt(n){return '$'+Math.round(n).toLocaleString('en-US')}
+  function calc(){
+    var bookings=+rB.value, value=+rV.value;
+    document.getElementById('vBookings').textContent=bookings+' bookings';
+    document.getElementById('vValue').textContent='$'+value;
+    var gross=bookings*value, cost=bookings*PA_FEE, net=gross-cost;
+    document.getElementById('oGross').textContent=fmt(gross);
+    document.getElementById('oCost').textContent=fmt(cost);
+    document.getElementById('oNet').textContent=fmt(net);
+  }
+  rB.oninput=calc; rV.oninput=calc; calc();
+})();
+</script>
+</body>
+</html>
