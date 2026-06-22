@@ -255,7 +255,7 @@
 
   /* MARKET — detailed */
   .mkt{margin-top:40px;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  .mrow{display:grid;grid-template-columns:160px 1fr 1fr;gap:26px;padding:24px 28px;border-bottom:1px solid var(--line);background:var(--panel)}
+  .mrow{display:grid;grid-template-columns:200px 1fr 1fr 1fr;gap:22px;padding:24px 28px;border-bottom:1px solid var(--line);background:var(--panel)}
   .mrow:last-child{border-bottom:none}
   .mrow.head{background:transparent;padding-bottom:10px}
   .mrow.head>div{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.07em;font-weight:600}
@@ -648,22 +648,25 @@
 <section class="slide" id="s-market" data-name="Market">
   <div class="wrap">
     <div class="label reveal">Market</div>
-    <h2 class="reveal d1">Today: mobile subscriptions<br>Then:<span class="b"> a payment rail for small transactions</span></h2>
+    <h2 class="reveal d1">Now: travel market<br>Ambition:<span class="b"> a payment rail for small transactions</span></h2>
     <div class="mkt reveal d2">
-      <div class="mrow head"><div></div><div>Paywall market</div><div>Sponsored payments rail</div></div>
+      <div class="mrow head"><div></div><div>Travel market GMV</div><div>PayAttention fee · 20%</div><div>Sponsored payments rail</div></div>
       <div class="mrow">
-        <div class="mac"><div class="tag2">TAM</div><div class="acd">Potential fee (20%) of the market recovered</div></div>
-        <div class="mcell"><div class="v1">$10B</div><div class="cd">All subscriptions excluding mega-tier with own payments, 20% recovery rate</div></div>
+        <div class="mac"><div class="tag2">TAM</div><div class="acd">All US travel-tech upgrades</div></div>
+        <div class="mcell"><div class="v1">~$21.0B</div></div>
+        <div class="mcell"><div class="v2">~$4.2B</div><div class="cd">ceiling</div></div>
         <div class="mcell"><div class="v2">$155B</div><div class="cd">Global $11T of ≤$50 transactions, 7% adoption</div></div>
       </div>
       <div class="mrow">
-        <div class="mac"><div class="tag2">SAM</div><div class="acd">US-addressable, 20% fee</div></div>
-        <div class="mcell"><div class="v1">$5.7B</div><div class="cd">20% recovery × 57% of TAM: mob $37B + web $52B + DTC $54B = $143B target subs revenue</div></div>
+        <div class="mac"><div class="tag2">SAM</div><div class="acd">Routable through a sponsor-funded bundle at point of intent (~18%)</div></div>
+        <div class="mcell"><div class="v1">~$3.8B</div></div>
+        <div class="mcell"><div class="v2">~$757M</div></div>
         <div class="mcell"><div class="v2">$19B</div><div class="cd">US 25% × 50% addressable</div></div>
       </div>
       <div class="mrow">
-        <div class="mac"><div class="tag2">SOM</div><div class="acd">ARR captured in 5–8 years</div></div>
-        <div class="mcell"><div class="v1">$120M</div><div class="cd">1000 merchants = 20% target market share, 2.1% of SAM</div></div>
+        <div class="mac"><div class="tag2">SOM · 3-yr</div><div class="acd">Realistically obtained</div></div>
+        <div class="mcell"><div class="v1">~$210M</div></div>
+        <div class="mcell"><div class="v2">~$42M</div><div class="cd">1% of TAM · 5.6% of SAM</div></div>
         <div class="mcell"><div class="v2">$1B</div><div class="cd">10M users spending $500 annually, 5% of SAM</div></div>
       </div>
     </div>
@@ -674,11 +677,10 @@
 <section class="slide" id="s-fin" data-name="Financials">
   <div class="wrap">
     <div class="label reveal">Financial plan</div>
-    <h2 class="reveal d1">We plan to reach $3.6M ARR at M12 and $60M at M36</h2>
-    <p class="sub reveal d2">This means 41 apps and 4,680 orders per day in year 1. Break-even by M9.</p>
+    <h2 class="reveal d1">We plan to reach $3.6M ARR at M12 and $42M at M36</h2>
     <div class="fin-top reveal d2">
       <div class="fs"><div class="n">$3.6M</div><div class="l">ARR at month 12</div></div>
-      <div class="fs"><div class="n">$60M</div><div class="l">ARR at month 36</div></div>
+      <div class="fs"><div class="n">$42M</div><div class="l">ARR at month 36</div></div>
       <div class="fs"><div class="n">M9</div><div class="l">Operating break-even</div></div>
     </div>
     <div class="chartbox reveal d3">
@@ -734,7 +736,7 @@
     <h2 class="reveal d1">Raising $500K to reach break-even at M9 and $300K MRR at M12</h2>
     <div class="ask-meta reveal d2">
       <span class="chip">SAFE · $5M cap</span>
-      <span class="chip"><span class="g">●</span> $100K already committed</span>
+      <span class="chip"><span class="g">●</span> $150K already committed</span>
     </div>
     <div class="contacts reveal d2">
       <div class="contact">
@@ -756,14 +758,8 @@
   <div class="wrap">
     <div class="reward-grid">
       <div class="reveal d1">
-        <div class="label" style="color:var(--netflix)">Your turn</div>
-        <h2>Saw the demo? Tell us what you think —<span class="hot"> the popcorn's on us. 🍿</span></h2>
-        <p class="body">Leave 30 seconds of honest feedback and we'll send you a <b style="color:var(--ink)">$15 Netflix gift card</b> as a thank-you. Drop your email, leave your take — we'll send the card straight to your inbox.</p>
-        <ul class="reward-perks">
-          <li><span class="ck">✓</span><div>Just your email — no password, no sign-in, no spam.</div></li>
-          <li><span class="ck">✓</span><div>Your feedback goes straight to the founders.</div></li>
-          <li><span class="ck">✓</span><div>We email your $15 card once we've read your note.</div></li>
-        </ul>
+        <h2>Feel the mechanics<span class="hot"> 🍿</span></h2>
+        <p class="body">Share your thoughts and get a <b style="color:var(--ink)">$15 Netflix gift card</b>.</p>
       </div>
       <div class="fbcard reveal d2">
         <div class="stage-block on" id="stage1">
@@ -774,7 +770,7 @@
             <input id="emailInput" type="email" inputmode="email" autocomplete="email" placeholder="you@email.com">
           </div>
           <button class="submit" id="emailBtn" type="button" disabled>Continue</button>
-          <p class="fineprint">We only use your email to send the gift card. Read once, never sold.</p>
+          <p class="fineprint">We’ll send your card here - that’s it. No spam, no selling your info.</p>
         </div>
         <div class="stage-block" id="stage2">
           <div class="step-h">Step 2 of 2</div>
@@ -783,10 +779,6 @@
             <div class="ava" id="avaInit">Y</div>
             <div><div class="em" id="signedEmail">you@email.com</div><div style="font-size:11.5px;color:var(--muted)">We'll email your card here</div></div>
             <div class="ok">✓</div>
-          </div>
-          <div class="field q">
-            <label for="fbUse">Would an app actually use this? <span class="req">*</span></label>
-            <textarea id="fbUse" class="fb-q" required aria-required="true" placeholder="Honestly — would a real app integrate this? Why / why not?"></textarea>
           </div>
           <div class="field q">
             <label for="fbWorry">What worried me <span class="req">*</span></label>
@@ -823,7 +815,80 @@
   <div class="wrap">
     <div class="label reveal">Appendix</div>
     <h2 class="reveal d1">Additional materials</h2>
-    <p class="sub reveal d2">Supporting context — framing &amp; long-term vision.</p>
+    <p class="sub reveal d2">Supporting context — matching, framing &amp; long-term vision.</p>
+  </div>
+</section>
+
+<style>
+  /* appendix · matching slide */
+  .layers{margin-top:36px;display:flex;flex-direction:column;gap:14px}
+  .layer{display:grid;grid-template-columns:54px 1fr;gap:20px;align-items:start;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px 26px;position:relative;overflow:hidden}
+  .layer::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-2);opacity:.5}
+  .layer.l1::before{opacity:.35}.layer.l2::before{opacity:.7}
+  .layer.l3::before{opacity:1;box-shadow:0 0 22px 1px rgba(59,116,255,.7)}
+  .lnum{font-size:32px;font-weight:800;letter-spacing:-.03em;line-height:1;padding-top:2px;
+    background:linear-gradient(176deg,#ffffff 28%,#7fa6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  html.light .lnum{background:linear-gradient(176deg,var(--ink) 30%,#2f5bff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lhead{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .lic{width:38px;height:38px;border-radius:11px;background:var(--accent-soft);border:1px solid rgba(59,116,255,.32);display:flex;align-items:center;justify-content:center;font-size:19px;flex:none}
+  .lhead h3{font-size:clamp(18px,2vw,23px);font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+  .ltag{font-size:12px;font-weight:700;letter-spacing:.02em;color:var(--accent-ink);background:var(--accent-soft);border:1px solid rgba(59,116,255,.3);padding:5px 11px;border-radius:999px}
+  .layer.l3 .ltag{color:#9ff0cf;background:var(--good-soft);border-color:rgba(52,211,153,.3)}
+  .ltext{font-size:clamp(14px,1.5vw,16px);color:var(--body);font-weight:500;line-height:1.45;margin-top:10px;max-width:760px}
+  .mchips{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+  .mchip{font-size:13px;font-weight:600;color:var(--ink-2);background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:8px 12px;display:inline-flex;align-items:center;gap:8px}
+  .mchip b{color:var(--accent-2);font-weight:800}
+  .mchip.src{color:var(--accent-ink);border-color:rgba(59,116,255,.3);background:var(--accent-soft)}
+  .mchip.good b{color:var(--good)}
+  @media(max-width:680px){.layer{grid-template-columns:1fr;gap:10px;padding:20px}.lnum{font-size:26px}}
+</style>
+
+<!-- APPENDIX · MATCHING -->
+<section class="slide" id="s-matching" data-name="Appendix · Matching">
+  <div class="wrap">
+    <div class="label reveal">Matching · users × advertisers</div>
+    <h2 class="reveal d1">How we match users and <span class="b">advertisers</span></h2>
+    <p class="sub reveal d1">Three layers of offers — from universal, to personal, to ones users never knew existed.</p>
+    <div class="layers">
+      <article class="layer l1 reveal d1">
+        <div class="lnum">1</div>
+        <div>
+          <div class="lhead"><span class="lic">🏦</span><h3>General financial offers</h3><span class="ltag">Anyone qualifies · no data needed</span></div>
+          <p class="ltext">High-value financial actions advertisers pay heavily to acquire — applicable to every user out of the box.</p>
+          <div class="mchips">
+            <span class="mchip">Open a bank account <b>$20–400</b></span>
+            <span class="mchip">Switch your payroll <b>$40–1000</b></span>
+            <span class="mchip">Switch your insurance <b>$40–1000</b></span>
+            <span class="mchip">Refinance your loans</span>
+          </div>
+        </div>
+      </article>
+      <article class="layer l2 reveal d2">
+        <div class="lnum">2</div>
+        <div>
+          <div class="lhead"><span class="lic">🎯</span><h3>Personalized offers</h3><span class="ltag">Substitutes for what you already use</span></div>
+          <p class="ltext">Users share their data — via screenshots, Plaid and Gmail — and we offer cheaper or better substitutes for services they already pay for.</p>
+          <div class="mchips">
+            <span class="mchip src">Screenshots</span>
+            <span class="mchip src">Plaid</span>
+            <span class="mchip src">Gmail</span>
+            <span class="mchip">→ cheaper substitute</span>
+          </div>
+        </div>
+      </article>
+      <article class="layer l3 reveal d3">
+        <div class="lnum">3</div>
+        <div>
+          <div class="lhead"><span class="lic">🔍</span><h3>Discovery offers</h3><span class="ltag">Offers they didn't know existed</span></div>
+          <p class="ltext">With that data we surface relevant offers the user never knew were available — ones that save them money, effort or time.</p>
+          <div class="mchips">
+            <span class="mchip good">Save <b>money</b></span>
+            <span class="mchip good">Save <b>effort</b></span>
+            <span class="mchip good">Save <b>time</b></span>
+          </div>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
@@ -1332,13 +1397,13 @@ ready(function(){
   var stage1=document.getElementById('stage1'), stage2=document.getElementById('stage2'), stage3=document.getElementById('stage3');
   var emailInput=document.getElementById('emailInput'), emailBtn=document.getElementById('emailBtn');
   var submitBtn=document.getElementById('submitBtn');
-  var qUse=document.getElementById('fbUse'), qWorry=document.getElementById('fbWorry'), qLoved=document.getElementById('fbLoved');
+  var qWorry=document.getElementById('fbWorry'), qLoved=document.getElementById('fbLoved');
   var resetLink=document.getElementById('resetLink'), signedEmail=document.getElementById('signedEmail'), avaInit=document.getElementById('avaInit');
   var rewardEmail=document.getElementById('rewardEmail'), errBox=document.getElementById('fbErr');
-  if(!stage1||!emailInput||!qUse) return;
+  if(!stage1||!emailInput||!qWorry) return;
   /* feedback -> $15 Netflix card. No backend: each submission is emailed to us via Formsubmit (no-code). */
   var ENDPOINT='https://formsubmit.co/ajax/bzhinavatomato@gmail.com';
-  var QS=[qUse,qWorry,qLoved];
+  var QS=[qWorry,qLoved];
   var userEmail='';
   function show(stage){ [stage1,stage2,stage3].forEach(function(s){ s.classList.remove('on'); }); stage.classList.add('on'); }
   function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
@@ -1350,19 +1415,19 @@ ready(function(){
     if(emailBtn.disabled) return;
     userEmail=emailInput.value.trim();
     signedEmail.textContent=userEmail; avaInit.textContent=(userEmail[0]||'Y').toUpperCase();
-    show(stage2); qUse.focus();
+    show(stage2); qWorry.focus();
   });
   QS.forEach(function(q){ q.addEventListener('input', checkFb); });
   function done(){ rewardEmail.textContent=userEmail; show(stage3); fireConfetti(); var rh=document.getElementById('rewardHeading'); if(rh) rh.focus(); }
   submitBtn.addEventListener('click', function(){
     if(submitBtn.disabled) return;
     if(errBox) errBox.textContent='';
-    var a1=qUse.value.trim(), a2=qWorry.value.trim(), a3=qLoved.value.trim();
-    var feedback='Would an app actually use this?\n'+a1+'\n\nWhat worried me\n'+a2+'\n\nWhat I loved\n'+a3;
+    var a2=qWorry.value.trim(), a3=qLoved.value.trim();
+    var feedback='What worried me\n'+a2+'\n\nWhat I loved\n'+a3;
     submitBtn.disabled=true; var lbl=submitBtn.textContent; submitBtn.textContent='Sending…';
     fetch(ENDPOINT,{ method:'POST', headers:{'content-type':'application/json','accept':'application/json'},
       body:JSON.stringify({ email:userEmail,
-        'Would an app use this': a1, 'What worried me': a2, 'What I loved': a3, feedback:feedback,
+        'What worried me': a2, 'What I loved': a3, feedback:feedback,
         _subject:'New PayAttention deck feedback', _captcha:'false',
         _autoresponse:"Thanks for the feedback! Your $15 Netflix gift card is on its way — we'll email it to you shortly. — PayAttention" }) })
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok:r.ok, j:j }; }); })
