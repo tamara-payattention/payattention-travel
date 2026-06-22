@@ -501,17 +501,21 @@
     <p class="sub reveal d2">Travellers complete brand-sponsored tasks —<br><span class="accent">the brands cover the upgrades.</span></p>
     <div class="sol-flow reveal d2">
       <div class="device"><div class="screen">
-        <div class="appscr">
-          <div class="ah"><div class="lg">✈</div><div><b>Your flight</b><small>Seat selection</small></div></div>
-          <h5>Choose your seat</h5>
-          <div class="opt sel"><span class="badge">Sponsored</span>
-            <div class="on"><div><div class="nm">Extra legroom</div><div class="ds">Up to 7cm more · priority boarding</div></div>
-            <div class="pr"><span class="was">$29</span><span class="zero">$0</span></div></div>
-          </div>
-          <div class="opt"><div class="on"><div><div class="nm">Standard seat</div><div class="ds">Assigned at check-in</div></div><div class="pr">Included</div></div></div>
-          <div class="cta">Continue with $0</div>
-          <div class="fine">Covered by a sponsor — regular fare applies otherwise</div>
-        </div>
+<div class="appscr">
+  <div class="sb"><span class="tm">9:41</span><span class="rt"><span class="bars"><i></i><i></i><i></i><i></i></span><svg class="wifi" viewBox="0 0 16 12" fill="currentColor"><path d="M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z"/></svg><span class="bat"></span></span></div>
+  <div class="ah"><div class="lg"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 11.3 21 4l-6.1 16.6-3.4-6.8-8.5-2.5z"/></svg></div><div><b>SkyJet</b><small>Seat selection</small></div></div>
+  <h4>Choose your seat</h4>
+  <div class="subt">Pick the option that works for you.</div>
+  <div class="opt sel"><span class="badge">Sponsored</span>
+    <div class="uplab">Extra legroom · sponsored</div>
+    <div class="selprow"><span class="amt">$0</span><span class="tod">today</span><span class="strike">$29</span></div>
+    <div class="desc">One quick 3–5 min action — a sponsor covers your seat. <b>You pay $0.</b></div>
+    <div class="checks"><div class="ckrow"><span class="c">✓</span>7 cm more legroom</div><div class="ckrow"><span class="c">✓</span>Priority boarding</div><div class="ckrow"><span class="c">✓</span>Dedicated bin space</div></div>
+  </div>
+  <div class="opt"><div class="on"><div><div class="nm">Standard seat</div><div class="ds">Assigned at check-in</div></div><div class="pr">Included</div></div></div>
+  <div class="fine">Regular fare applies if your action isn't sponsored.</div>
+  <div class="cta">Continue with $0</div>
+</div>
       </div></div>
       <div class="device"><div class="screen">
         <div class="appscr">
@@ -1018,6 +1022,150 @@
   /* why-now card icons */
   .why-ic{width:50px;height:50px;border-radius:13px;background:var(--accent-soft);border:1px solid rgba(59,116,255,.32);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:18px}
   html.light .why-ic{background:var(--accent-soft);border-color:rgba(47,107,255,.28)}
+
+/* ==== travel screen styles (injected) ==== */
+/* ===== additions to mirror the reference iOS designs (travel) ===== */
+.screen .appscr,.dframe .appscr{padding:5% 5.5%}
+.appscr .lg svg{width:15px;height:15px;display:block}
+.appscr .brand .lg svg{width:14px;height:14px;display:block}
+
+/* status bar */
+.appscr .sb{display:flex;justify-content:space-between;align-items:center;margin-bottom:4.5%}
+.appscr .sb .tm{font-size:12px;font-weight:800;color:#0e1116;letter-spacing:.02em}
+.appscr .sb .rt{display:flex;align-items:center;gap:5px}
+.appscr .sb .bars{display:inline-flex;align-items:flex-end;gap:1.6px;height:10px}
+.appscr .sb .bars i{width:2.6px;background:#0e1116;border-radius:1px}
+.appscr .sb .bars i:nth-child(1){height:4px}
+.appscr .sb .bars i:nth-child(2){height:6px}
+.appscr .sb .bars i:nth-child(3){height:8px}
+.appscr .sb .bars i:nth-child(4){height:10px}
+.appscr .sb .wifi{width:15px;height:11px;color:#0e1116}
+.appscr .sb .bat{width:22px;height:11px;border:1.4px solid #0e1116;border-radius:3px;position:relative;opacity:.95}
+.appscr .sb .bat::before{content:"";position:absolute;left:1.5px;top:1.5px;bottom:1.5px;width:72%;background:#0e1116;border-radius:1px}
+.appscr .sb .bat::after{content:"";position:absolute;right:-3px;top:3.2px;width:2px;height:4.6px;background:#0e1116;border-radius:0 1px 1px 0}
+
+/* breadcrumb header */
+.appscr .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:4.5%}
+.appscr .brand{display:flex;align-items:center;gap:7px}
+.appscr .brand .lg{width:25px;height:25px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.appscr .brand b{font-size:13px;color:#0e1116;font-weight:800}
+.appscr .crumb{font-size:10px;color:#9aa2b0;font-weight:700}
+.appscr .crumb b{color:#0e1116}
+
+/* big title + subtitle */
+.appscr h4{font-size:19px;line-height:1.15;font-weight:800;color:#0e1116;letter-spacing:-.02em;margin-bottom:3.5%}
+.appscr .subt{font-size:12px;color:#8a92a0;margin:-2% 0 5%}
+
+/* feature rows */
+.appscr .feat{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.appscr .feat .ic{width:27px;height:27px;border-radius:8px;background:#eef2f7;display:flex;align-items:center;justify-content:center;font-size:15px;flex:none}
+.appscr .feat span{font-size:12px;color:#0e1116;font-weight:600}
+
+/* sponsored pill */
+.appscr .spill{align-self:flex-start;background:rgba(59,116,255,.10);color:var(--accent);font-size:10.5px;font-weight:800;padding:6px 12px;border-radius:999px;margin:2px 0 8px}
+
+/* amount + price row (dark $0, struck old price) */
+.appscr .prow{display:flex;align-items:baseline;gap:7px}
+.appscr .amt{font-size:24px;font-weight:800;color:#0e1116;line-height:1}
+.appscr .tod{font-size:12px;color:#8a92a0;font-weight:600}
+.appscr .strike{color:#b3b9c4;text-decoration:line-through;font-size:12.5px;font-weight:700}
+
+/* price card */
+.appscr .pcard{border:1px solid #e7eaf0;border-radius:13px;padding:11px 12px;margin-bottom:9px;box-shadow:0 6px 18px -12px rgba(15,23,42,.18)}
+.appscr .pcard .lab{font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#9aa2b0;margin-bottom:5px}
+.appscr .pcard .note{font-size:10.5px;color:#8a92a0;margin-top:6px;line-height:1.38}
+
+/* how-it-works card */
+.appscr .how{background:#f3f5f8;border-radius:13px;padding:10px 12px;margin-bottom:9px}
+.appscr .how .ht{font-size:12px;font-weight:800;color:#0e1116;margin-bottom:7px}
+.appscr .how .hrow{display:flex;gap:9px;margin-bottom:7px;align-items:flex-start}
+.appscr .how .hrow:last-child{margin-bottom:0}
+.appscr .how .ic{width:21px;height:21px;border-radius:6px;background:rgba(59,116,255,.12);display:flex;align-items:center;justify-content:center;font-size:11px;flex:none}
+.appscr .how .hrow p{font-size:10px;color:#3a414c;line-height:1.36}
+.appscr .how .hrow b{color:#0e1116}
+
+/* fields */
+.appscr .flab{font-size:12px;font-weight:800;color:#0e1116;margin-bottom:5px}
+.appscr .inp{border:1px solid #e3e7ee;border-radius:10px;padding:9px 12px;font-size:12px;color:#0e1116;background:#fafbfc;margin-bottom:8px}
+
+/* checkbox rows */
+.appscr .crow{display:flex;gap:9px;align-items:flex-start;margin-bottom:6px}
+.appscr .crow .bx{width:16px;height:16px;border-radius:5px;border:1.6px solid #c4cbd6;flex:none;margin-top:1px;position:relative}
+.appscr .crow.on .bx{background:#0e1116;border-color:#0e1116}
+.appscr .crow.on .bx::after{content:"✓";color:#fff;font-size:10px;position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-weight:800}
+.appscr .crow p{font-size:10px;color:#3a414c;line-height:1.36}
+.appscr .crow u{color:#0e1116}
+
+/* secure-checkout header */
+.appscr .sec{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;color:#0e1116;padding-bottom:8px;border-bottom:1px solid #eef1f5;margin-bottom:9px}
+.appscr .sec .crumb{margin-left:auto;font-weight:700}
+
+/* browser bar */
+.appscr .bbar{margin-top:auto;display:flex;align-items:center;gap:9px;padding-top:9px}
+.appscr .bbar .url{flex:1;background:#eef0f3;border-radius:999px;padding:7px 13px;font-size:10.5px;color:#0e1116;text-align:center;font-weight:700}
+.appscr .bbar .nb{width:23px;height:23px;border-radius:50%;background:#eef0f3;display:flex;align-items:center;justify-content:center;color:#6a7280;font-size:12px;flex:none}
+
+/* footer links */
+.appscr .foot{display:flex;justify-content:space-between;font-size:10px;color:#aeb4c0;margin-top:9px;font-weight:600}
+
+/* solution: uplabel, sel price row, description, checklist */
+.appscr .uplab{color:var(--accent);font-size:9.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+.appscr .selprow{display:flex;align-items:baseline;gap:7px}
+.appscr .desc{font-size:10.5px;color:#5a626e;line-height:1.38;margin-top:5px}
+.appscr .desc b{color:#0e1116}
+.appscr .checks{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+.appscr .ckrow{display:flex;align-items:center;gap:8px;font-size:11.5px;color:#0e1116;font-weight:500}
+.appscr .ckrow .c{color:var(--good);font-weight:800}
+.appscr .howti{font-size:12px;font-weight:800;color:#0e1116;margin-bottom:3px}
+.appscr .howtx{font-size:10.5px;color:#8a92a0;line-height:1.4;margin-bottom:8px}
+
+/* ---- demo flow 3–13 components ---- */
+/* apple pay button */
+.appscr .apay{background:#0e1116;color:#fff;border-radius:12px;padding:12px;display:flex;align-items:center;justify-content:center;gap:7px;font-weight:700;font-size:15px}
+.appscr .apay svg{width:17px;height:17px;fill:#fff}
+/* saved card row */
+.appscr .card{display:flex;align-items:center;gap:11px;border:1px solid #e7eaf0;border-radius:12px;padding:11px 12px;margin-bottom:10px}
+.appscr .card .vis{font-size:12px;font-weight:900;color:#1434cb;letter-spacing:.02em;flex:none;font-style:italic}
+.appscr .card .cn{font-size:12.5px;font-weight:700;color:#0e1116}
+.appscr .card .cs{font-size:10.5px;color:#8a92a0;margin-top:1px}
+.appscr .card .chip{margin-left:auto;font-size:9.5px;font-weight:800;color:#8a92a0;background:#f1f3f7;border-radius:6px;padding:3px 7px;text-transform:uppercase;letter-spacing:.04em}
+/* timer */
+.appscr .tdot{align-self:center;background:rgba(59,116,255,.1);color:var(--accent);font-size:10.5px;font-weight:800;padding:6px 12px;border-radius:999px;margin-bottom:7px}
+.appscr .timer{font-size:36px;font-weight:800;text-align:center;color:#0e1116;font-variant-numeric:tabular-nums;letter-spacing:.01em;margin:2px 0}
+.appscr .tcap{text-align:center;font-size:11px;color:#8a92a0;font-weight:600;margin-bottom:13px}
+/* sponsor list */
+.appscr .spon{display:flex;align-items:center;gap:11px;border:1px solid #e7eaf0;border-radius:13px;padding:11px 12px;margin-bottom:9px}
+.appscr .spon.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);background:rgba(59,116,255,.05)}
+.appscr .spon .lg2{width:33px;height:33px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:15px;color:#fff;flex:none}
+.appscr .spon .nm{font-size:12px;font-weight:700;color:#0e1116}
+.appscr .spon .ds{font-size:10px;color:#8a92a0;margin-top:1px}
+.appscr .spon .pick{margin-left:auto;font-size:11px;font-weight:800;color:var(--good);white-space:nowrap}
+/* progress steps */
+.appscr .pstep{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.appscr .pstep .d{width:22px;height:22px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.appscr .pstep .d.ok{background:var(--good);color:#fff}
+.appscr .pstep .d.now{background:rgba(59,116,255,.14);color:var(--accent);border:1.5px solid var(--accent)}
+.appscr .pstep .d.wait{background:#eef1f5;color:#aeb4c0}
+.appscr .pstep .pt{font-size:12px;color:#0e1116;font-weight:600}
+.appscr .pstep.dim .pt{color:#aeb4c0;font-weight:500}
+/* upload dropzone */
+.appscr .drop{border:1.5px dashed #c9d0db;border-radius:14px;padding:20px 12px;text-align:center;background:#fafbfc;margin-bottom:11px}
+.appscr .drop .ic{width:38px;height:38px;border-radius:11px;background:#eef3ff;color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 9px}
+.appscr .drop .t{font-size:12px;font-weight:700;color:#0e1116}
+.appscr .drop .s{font-size:10.5px;color:#8a92a0;margin-top:3px}
+/* review status */
+.appscr .rev{display:flex;align-items:center;gap:11px;background:#f3f5f8;border-radius:13px;padding:12px 13px;margin-bottom:11px}
+.appscr .rev .sp{width:24px;height:24px;border-radius:50%;border:2.5px solid #d3dae6;border-top-color:var(--accent);flex:none}
+.appscr .rev .rt{font-size:12.5px;font-weight:800;color:#0e1116}
+.appscr .rev .rs{font-size:10.5px;color:#8a92a0;margin-top:1px}
+/* boarding-pass summary */
+.appscr .bp{border:1px solid #e7eaf0;border-radius:14px;overflow:hidden;margin:2px 0 11px}
+.appscr .bp .bh{background:var(--accent);color:#fff;padding:10px 13px;display:flex;justify-content:space-between;align-items:center;font-weight:800;font-size:12px}
+.appscr .bp .bb{padding:11px 13px;display:flex;justify-content:space-between;align-items:center}
+.appscr .bp .seat{font-size:18px;font-weight:800;color:#0e1116}
+.appscr .bp .seatl{font-size:9.5px;color:#8a92a0;text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+.appscr .bp .paid{font-size:18px;font-weight:800;color:var(--good)}
+
 </style>
 
 <script>
@@ -1047,8 +1195,19 @@ ready(function(){
   var idx=0, timer=null, INT=2200;
   /* HTML mockups for the first two screens (rest fall back to images) */
   var HTML={
-    0:'<div class="appscr"><div class="ah"><div class="lg">✈</div><div><b>Your flight</b><small>Seat upgrade</small></div></div><h5>Extra legroom</h5><div class="opt sel"><span class="badge">Sponsored</span><div class="on"><div><div class="nm">Upgrade your seat</div><div class="ds">Up to 7cm more legroom</div></div><div class="pr"><span class="was">$29</span><span class="zero">$0</span></div></div></div><div class="cta">Get it for $0</div><div class="fine">Covered by a sponsor</div></div>',
-    1:'<div class="appscr"><div class="ah"><div class="lg">✈</div><div><b>Checkout</b><small>Seat upgrade</small></div></div><h5>Confirm your upgrade</h5><div class="opt"><div class="on"><div><div class="nm">Extra legroom seat</div><div class="ds">Sponsored upgrade</div></div><div class="pr"><span class="was">$29</span><span class="zero">$0</span></div></div></div><div class="opt"><div class="on"><div class="nm">Due today</div><div class="pr zero">$0.00</div></div></div><div class="cta">Pay $0 today</div><div class="fine">Complete one short action within 24h</div></div>'
+    0:"<div class=\"appscr\">\n  <div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\"><svg viewBox=\"0 0 24 24\" fill=\"#fff\"><path d=\"M3 11.3 21 4l-6.1 16.6-3.4-6.8-8.5-2.5z\"/></svg></div><b>SkyJet</b></div><div class=\"crumb\"><b>SKYJET</b> › PayAttention</div></div>\n  <h4>Upgrade your seat —<br>covered by a sponsor</h4>\n  <div class=\"feat\"><div class=\"ic\">🛋️</div><span>Extra legroom &amp; recline</span></div>\n  <div class=\"feat\"><div class=\"ic\">🥂</div><span>Priority boarding &amp; lounge</span></div>\n  <div class=\"feat\"><div class=\"ic\">🧳</div><span>Extra cabin baggage</span></div>\n  <div class=\"spill\">✦ Sponsored offer</div>\n  <div class=\"pcard\"><div class=\"lab\">Seat upgrade · extra legroom</div>\n    <div class=\"prow\"><span class=\"amt\">$0</span><span class=\"tod\">today</span><span class=\"strike\">$29</span></div>\n    <div class=\"note\">A sponsor covers your upgrade. You just complete their small action.</div>\n  </div>\n  <div class=\"howti\">How the sponsored offer works</div>\n  <div class=\"howtx\">One quick 3–5 min action within 24h — or keep the regular fare.</div>\n  <div class=\"cta\">Continue with $0</div>\n  <div class=\"fine\">No charge today · Cancel anytime</div>\n</div>",
+    1:"<div class=\"appscr\">\n  <div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"sec\">🔒 Secure checkout <span class=\"crumb\"><b>SKYJET</b> › PayAttention</span></div>\n  <div class=\"spill\">✦ Sponsored offer</div>\n  <div class=\"prow\" style=\"margin-bottom:4px\"><span class=\"amt\">$0 today</span><span class=\"strike\">$29</span></div>\n  <div style=\"font-size:11px;color:#8a92a0;line-height:1.38;margin-bottom:9px\">A sponsor will cover your upgrade — just complete their small action.</div>\n  <div class=\"how\"><div class=\"ht\">How it works</div>\n    <div class=\"hrow\"><div class=\"ic\">💳</div><p><b>Save your card</b> — no charge today.</p></div>\n    <div class=\"hrow\"><div class=\"ic\">👥</div><p><b>Pick a sponsor</b>, do their action (~3 min) within 24h.</p></div>\n    <div class=\"hrow\"><div class=\"ic\">🎁</div><p><b>Sponsor pays $29.</b> Skip it and you pay instead.</p></div>\n  </div>\n  <div class=\"flab\">Your email</div>\n  <div class=\"inp\">tamara@payattention.now</div>\n  <div class=\"crow on\"><span class=\"bx\"></span><p>If I skip the action within 24h, $29 is charged to my card.</p></div>\n  <div class=\"crow\"><span class=\"bx\"></span><p>I accept the <u>Terms</u> and <u>Privacy Policy</u>.</p></div>\n  <div class=\"bbar\"><span class=\"nb\">‹</span><span class=\"url\">app.payattention.now</span><span class=\"nb\">⟳</span></div>\n</div>",
+    2:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"sec\">🔒 Secure checkout <span class=\"crumb\"><b>SKYJET</b> › PayAttention</span></div>\n  <h4>Save your card</h4>\n  <div class=\"subt\">Backup only — you're charged <b style=\"color:#0e1116\">$0.00</b> today.</div>\n  <div class=\"card\"><span class=\"vis\">VISA</span><div><div class=\"cn\">•••• •••• •••• 4242</div><div class=\"cs\">Saved as backup card</div></div><span class=\"chip\">Backup</span></div>\n  <div class=\"how\"><div class=\"ht\">Why we ask</div>\n    <div class=\"hrow\"><div class=\"ic\">🔒</div><p>Stored securely — used only if you skip the action.</p></div>\n    <div class=\"hrow\"><div class=\"ic\">✓</div><p>No charge today — your sponsor covers the $29 upgrade.</p></div>\n  </div>\n  <div class=\"apay\" style=\"margin-top:auto\"><svg viewBox=\"0 0 24 24\"><path d=\"M17 12.2c0-2 1.6-2.9 1.7-3-1-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7-.6 0-1.6-.7-2.6-.7-1.3 0-2.6.8-3.2 2-1.4 2.4-.4 6 .9 7.9.7 1 1.4 2 2.4 1.9.9 0 1.3-.6 2.4-.6s1.4.6 2.4.6 1.6-.9 2.3-1.9c.7-1 .9-2 .9-2-.1 0-1.8-.7-1.8-2.7zM15.3 6.2c.5-.6.9-1.5.8-2.4-.8 0-1.7.5-2.2 1.1-.5.5-.9 1.4-.8 2.3.9.1 1.8-.4 2.2-1z\"/></svg> Pay</div>\n  <div class=\"fine\">Double-click side button to confirm · 0.00 US$</div>\n</div>",
+    3:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"sec\">🔒 Secure checkout <span class=\"crumb\"><b>SKYJET</b> › PayAttention</span></div>\n  <div style=\"text-align:center;margin:7% 0 6%\">\n    <div class=\"big\" style=\"width:54px;height:54px;font-size:28px;margin:0 auto\">✓</div>\n    <div style=\"font-size:18px;font-weight:800;color:#0e1116;margin-top:13px\">Card saved</div>\n    <div style=\"font-size:12px;color:#8a92a0;margin-top:6px\">Nothing charged today.</div>\n  </div>\n  <div class=\"card\"><span class=\"vis\">VISA</span><div><div class=\"cn\">•••• 4242</div><div class=\"cs\">Backup · not charged</div></div><span class=\"chip\">$0.00</span></div>\n  <div class=\"reward\" style=\"margin-top:8px\">Next: complete one sponsored action to cover your $29 seat upgrade</div>\n  <div class=\"cta\" style=\"margin-top:auto\">Continue</div>\n  <div class=\"fine\">Cancel and pay the regular fare anytime</div>\n</div>",
+    4:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\"><svg viewBox=\"0 0 24 24\" fill=\"#fff\"><path d=\"M3 11.3 21 4l-6.1 16.6-3.4-6.8-8.5-2.5z\"/></svg></div><b>SkyJet</b></div><div class=\"crumb\"><b>SKYJET</b> › PayAttention</div></div>\n  <div class=\"tdot\">⏱ Sponsored upgrade pending</div>\n  <div class=\"timer\">23:59:59</div>\n  <div class=\"tcap\">to complete one short action</div>\n  <div class=\"how\"><div class=\"ht\">What happens next</div>\n    <div class=\"hrow\"><div class=\"ic\">①</div><p>Pick a sponsor and do their quick action (~3 min).</p></div>\n    <div class=\"hrow\"><div class=\"ic\">②</div><p>Once approved, your <b>$29 seat upgrade is covered.</b></p></div>\n    <div class=\"hrow\"><div class=\"ic\">③</div><p>Skip anytime — just pay the regular fare.</p></div>\n  </div>\n  <div class=\"cta\" style=\"margin-top:auto\">See sponsored actions</div>\n  <div class=\"fine\">Your extra-legroom seat is held for 24h</div>\n</div>",
+    5:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\"><svg viewBox=\"0 0 24 24\" fill=\"#fff\"><path d=\"M3 11.3 21 4l-6.1 16.6-3.4-6.8-8.5-2.5z\"/></svg></div><b>SkyJet</b></div><div class=\"crumb\">Choose a sponsor</div></div>\n  <h4>Pick one action</h4>\n  <div class=\"subt\">Any one covers your <b style=\"color:#0e1116\">$29</b> upgrade.</div>\n  <div class=\"spon sel\"><div class=\"lg2\" style=\"background:#0a1a2f\">R</div><div><div class=\"nm\">Open a free Revolut account</div><div class=\"ds\">~3 min · no card charged</div></div><span class=\"pick\">Covers $29</span></div>\n  <div class=\"spon\"><div class=\"lg2\" style=\"background:#003580\">B</div><div><div class=\"nm\">Try Booking.com Genius</div><div class=\"ds\">~2 min</div></div><span class=\"pick\" style=\"color:#8a92a0\">Covers $20</span></div>\n  <div class=\"spon\"><div class=\"lg2\" style=\"background:#34a853\">b</div><div><div class=\"nm\">Install the Bolt app</div><div class=\"ds\">~1 min</div></div><span class=\"pick\" style=\"color:#8a92a0\">Covers $12</span></div>\n  <div class=\"cta\" style=\"margin-top:auto\">Continue with Revolut</div>\n  <div class=\"fine\">Sponsors pay PayAttention — you pay $0</div>\n</div>",
+    6:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\" style=\"background:#0a1a2f\">R</div><b>Revolut</b></div><div class=\"crumb\">Sponsored action</div></div>\n  <h4>Open a free Revolut account</h4>\n  <div class=\"task\"><div class=\"ti\">→</div><div><div class=\"nm\">Sign up &amp; verify your identity</div><div class=\"ds\">Takes ~3 min · no card charged</div></div></div>\n  <div class=\"how\" style=\"margin-top:10px\"><div class=\"ht\">Steps</div>\n    <div class=\"hrow\"><div class=\"ic\">①</div><p>Download Revolut &amp; create your account.</p></div>\n    <div class=\"hrow\"><div class=\"ic\">②</div><p>Complete the in-app verification.</p></div>\n    <div class=\"hrow\"><div class=\"ic\">③</div><p>Come back &amp; upload your confirmation.</p></div>\n  </div>\n  <div class=\"reward\">Complete it → your $29 seat upgrade is covered</div>\n  <div class=\"cta\" style=\"margin-top:auto\">Start task</div>\n  <div class=\"fine\">Skip anytime and pay the regular fare</div>\n</div>",
+    7:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\" style=\"background:#0a1a2f\">R</div><b>Revolut</b></div><div class=\"crumb\">Verifying</div></div>\n  <h4>Confirming your action</h4>\n  <div class=\"subt\">Hang tight — this usually takes a few seconds.</div>\n  <div class=\"pstep\"><div class=\"d ok\">✓</div><div class=\"pt\">Revolut account created</div></div>\n  <div class=\"pstep\"><div class=\"d ok\">✓</div><div class=\"pt\">Identity verified</div></div>\n  <div class=\"pstep\"><div class=\"d now\">●</div><div class=\"pt\">Confirming with sponsor…</div></div>\n  <div class=\"pstep dim\"><div class=\"d wait\">4</div><div class=\"pt\">Approve your $29 upgrade</div></div>\n  <div class=\"reward\" style=\"margin-top:4px\">Almost there — keep this screen open</div>\n  <div class=\"cta\" style=\"margin-top:auto;background:#eef1f5;color:#8a92a0\">Verifying…</div>\n</div>",
+    8:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\" style=\"background:#0a1a2f\">R</div><b>Revolut</b></div><div class=\"crumb\">Step 2 of 2</div></div>\n  <h4>Upload your confirmation</h4>\n  <div class=\"subt\">Add a screenshot of your new Revolut account.</div>\n  <div class=\"drop\"><div class=\"ic\">⬆</div><div class=\"t\">Tap to upload a screenshot</div><div class=\"s\">PNG or JPG · max 10 MB</div></div>\n  <div class=\"how\"><div class=\"hrow\"><div class=\"ic\">✓</div><p>We check it instantly — most approvals take under a minute.</p></div></div>\n  <div class=\"cta\" style=\"margin-top:auto\">Submit proof</div>\n  <div class=\"fine\">Your $29 upgrade unlocks right after approval</div>\n</div>",
+    9:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\" style=\"background:#0a1a2f\">R</div><b>Revolut</b></div><div class=\"crumb\">In review</div></div>\n  <h4>Submitted</h4>\n  <div class=\"subt\">We're reviewing your action now.</div>\n  <div class=\"rev\"><span class=\"sp\"></span><div><div class=\"rt\">In review</div><div class=\"rs\">Usually under a minute…</div></div></div>\n  <div class=\"pstep\"><div class=\"d ok\">✓</div><div class=\"pt\">Proof received</div></div>\n  <div class=\"pstep\"><div class=\"d now\">●</div><div class=\"pt\">Sponsor confirming your upgrade</div></div>\n  <div class=\"reward\" style=\"margin-top:4px\">You'll be notified the moment it's approved</div>\n  <div class=\"cta\" style=\"margin-top:auto;background:#eef1f5;color:#8a92a0\">Waiting for approval…</div>\n</div>",
+    10:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div style=\"margin:auto 0;text-align:center\">\n    <div class=\"big\" style=\"margin:0 auto\">✓</div>\n    <div class=\"done-t\">Approved!</div>\n    <div class=\"done-s\" style=\"margin-inline:auto\">Your sponsored action is verified.</div>\n    <div class=\"done-z\">$29 seat upgrade covered</div>\n  </div>\n  <div class=\"fine\">Paid by your sponsor · you paid $0</div>\n</div>",
+    11:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div class=\"top\"><div class=\"brand\"><div class=\"lg\"><svg viewBox=\"0 0 24 24\" fill=\"#fff\"><path d=\"M3 11.3 21 4l-6.1 16.6-3.4-6.8-8.5-2.5z\"/></svg></div><b>SkyJet</b></div><div class=\"crumb\">Boarding pass</div></div>\n  <h4>You're upgraded</h4>\n  <div class=\"subt\">Extra legroom — covered by Revolut.</div>\n  <div class=\"bp\"><div class=\"bh\"><span>SkyJet · SVO → JFK</span><span>Seat 12A</span></div>\n    <div class=\"bb\"><div><div class=\"seatl\">Seat</div><div class=\"seat\">Extra legroom</div></div><div style=\"text-align:right\"><div class=\"seatl\">You paid</div><div class=\"paid\">$0</div></div></div>\n  </div>\n  <div class=\"reward\">$29 upgrade fully covered by your sponsor</div>\n  <div class=\"cta\" style=\"margin-top:auto\">View boarding pass</div>\n</div>",
+    12:"<div class=\"appscr\">\n<div class=\"sb\"><span class=\"tm\">9:41</span><span class=\"rt\"><span class=\"bars\"><i></i><i></i><i></i><i></i></span><svg class=\"wifi\" viewBox=\"0 0 16 12\" fill=\"currentColor\"><path d=\"M8 10.8l1.7-2.1a2.2 2.2 0 0 0-3.4 0L8 10.8zM8 6.6c1.3 0 2.5.5 3.4 1.4l1.2-1.5A7 7 0 0 0 8 4.9 7 7 0 0 0 3.4 6.5l1.2 1.5A4.8 4.8 0 0 1 8 6.6zM8 2.4c2.4 0 4.6.9 6.2 2.4L15.5 3.2A10.6 10.6 0 0 0 8 .6 10.6 10.6 0 0 0 .5 3.2l1.3 1.6A8.9 8.9 0 0 1 8 2.4z\"/></svg><span class=\"bat\"></span></span></div>\n  <div style=\"margin:auto 0;text-align:center\">\n    <div class=\"big\" style=\"margin:0 auto\">✓</div>\n    <div class=\"done-t\">You're all set 🎉</div>\n    <div class=\"done-s\" style=\"margin-inline:auto\">Extra legroom seat · covered by Revolut.</div>\n    <div class=\"done-z\">$0 paid · $29 saved</div>\n  </div>\n  <div class=\"reward\" style=\"text-align:center\">Pay with attention — not money</div>\n</div>"
   };
   DECK.forEach(function(d,i){
     var fr=document.createElement('div'); fr.className='dframe';
