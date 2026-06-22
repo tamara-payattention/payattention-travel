@@ -395,6 +395,9 @@
    .field input{width:100%;background:var(--panel-2);border:1px solid var(--line-2);border-radius:11px;padding:13px;color:var(--ink);font-size:15px;font-family:inherit;transition:border-color .2s}
    .field input:focus{outline:none;border-color:var(--accent)}
    .field input::placeholder{color:var(--muted)}
+   .field.q{margin-top:14px}
+   .field.q textarea.fb-q{min-height:58px}
+   .field .req{color:var(--netflix);font-weight:700}
   .chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
   .chip-q{font-size:12px;color:var(--body);border:1px solid var(--line-2);background:transparent;border-radius:999px;padding:6px 12px;
     cursor:pointer;transition:.2s;font-family:inherit}
@@ -777,14 +780,17 @@
             <div><div class="em" id="signedEmail">you@email.com</div><div style="font-size:11.5px;color:var(--muted)">We'll email your card here</div></div>
             <div class="ok">✓</div>
           </div>
-          <div class="field">
-            <label for="fbText">Your feedback on the product &amp; demo</label>
-            <textarea id="fbText" placeholder="The most useful / unclear / surprising thing was…"></textarea>
-            <div class="chips">
-              <button type="button" class="chip-q">Would an app actually use this?</button>
-              <button type="button" class="chip-q">What worried me</button>
-              <button type="button" class="chip-q">What I loved</button>
-            </div>
+          <div class="field q">
+            <label for="fbUse">Would an app actually use this? <span class="req">*</span></label>
+            <textarea id="fbUse" class="fb-q" required aria-required="true" placeholder="Honestly — would a real app integrate this? Why / why not?"></textarea>
+          </div>
+          <div class="field q">
+            <label for="fbWorry">What worried me <span class="req">*</span></label>
+            <textarea id="fbWorry" class="fb-q" required aria-required="true" placeholder="The risk, doubt, or objection that stood out…"></textarea>
+          </div>
+          <div class="field q">
+            <label for="fbLoved">What I loved <span class="req">*</span></label>
+            <textarea id="fbLoved" class="fb-q" required aria-required="true" placeholder="The part that clicked or surprised you…"></textarea>
           </div>
           <button class="submit" id="submitBtn" type="button" disabled>Claim my $15 Netflix card 🍿</button>
           <p class="fineprint" id="fbErr" style="color:var(--netflix);margin-top:8px"></p>
@@ -1166,44 +1172,47 @@ ready(function(){
 ready(function(){
   var stage1=document.getElementById('stage1'), stage2=document.getElementById('stage2'), stage3=document.getElementById('stage3');
   var emailInput=document.getElementById('emailInput'), emailBtn=document.getElementById('emailBtn');
-  var fbText=document.getElementById('fbText'), submitBtn=document.getElementById('submitBtn');
+  var submitBtn=document.getElementById('submitBtn');
+  var qUse=document.getElementById('fbUse'), qWorry=document.getElementById('fbWorry'), qLoved=document.getElementById('fbLoved');
   var resetLink=document.getElementById('resetLink'), signedEmail=document.getElementById('signedEmail'), avaInit=document.getElementById('avaInit');
   var rewardEmail=document.getElementById('rewardEmail'), errBox=document.getElementById('fbErr');
-  if(!stage1||!emailInput) return;
+  if(!stage1||!emailInput||!qUse) return;
   /* feedback -> $15 Netflix card. No backend: each submission is emailed to us via Formsubmit (no-code). */
   var ENDPOINT='https://formsubmit.co/ajax/bzhinavatomato@gmail.com';
+  var QS=[qUse,qWorry,qLoved];
   var userEmail='';
   function show(stage){ [stage1,stage2,stage3].forEach(function(s){ s.classList.remove('on'); }); stage.classList.add('on'); }
   function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
   function checkEmail(){ emailBtn.disabled = !validEmail(emailInput.value.trim()); }
-  function checkFb(){ submitBtn.disabled = fbText.value.trim().length < 4; }
+  function checkFb(){ submitBtn.disabled = QS.some(function(q){ return q.value.trim().length < 2; }); }
   emailInput.addEventListener('input', checkEmail);
   emailInput.addEventListener('keydown', function(e){ if(e.key==='Enter' && !emailBtn.disabled){ e.preventDefault(); emailBtn.click(); } });
   emailBtn.addEventListener('click', function(){
     if(emailBtn.disabled) return;
     userEmail=emailInput.value.trim();
     signedEmail.textContent=userEmail; avaInit.textContent=(userEmail[0]||'Y').toUpperCase();
-    show(stage2); fbText.focus();
+    show(stage2); qUse.focus();
   });
-  document.querySelectorAll('.chip-q').forEach(function(c){
-    c.addEventListener('click', function(){ fbText.value=(fbText.value?fbText.value+' ':'')+c.textContent.trim()+': '; fbText.focus(); checkFb(); });
-  });
-  fbText.addEventListener('input', checkFb);
+  QS.forEach(function(q){ q.addEventListener('input', checkFb); });
   function done(){ rewardEmail.textContent=userEmail; show(stage3); fireConfetti(); var rh=document.getElementById('rewardHeading'); if(rh) rh.focus(); }
   submitBtn.addEventListener('click', function(){
     if(submitBtn.disabled) return;
     if(errBox) errBox.textContent='';
+    var a1=qUse.value.trim(), a2=qWorry.value.trim(), a3=qLoved.value.trim();
+    var feedback='Would an app actually use this?\n'+a1+'\n\nWhat worried me\n'+a2+'\n\nWhat I loved\n'+a3;
     submitBtn.disabled=true; var lbl=submitBtn.textContent; submitBtn.textContent='Sending…';
     fetch(ENDPOINT,{ method:'POST', headers:{'content-type':'application/json','accept':'application/json'},
-      body:JSON.stringify({ email:userEmail, feedback:fbText.value.trim(),
+      body:JSON.stringify({ email:userEmail,
+        'Would an app use this': a1, 'What worried me': a2, 'What I loved': a3, feedback:feedback,
         _subject:'New PayAttention deck feedback', _captcha:'false',
         _autoresponse:"Thanks for the feedback! Your $15 Netflix gift card is on its way — we'll email it to you shortly. — PayAttention" }) })
       .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ return { ok:r.ok, j:j }; }); })
       .then(function(res){ if(!res.ok) throw new Error('send failed'); done(); })
       .catch(function(){ submitBtn.disabled=false; submitBtn.textContent=lbl; if(errBox) errBox.textContent="Couldn't send — check your connection and try again."; });
   });
-  resetLink.addEventListener('click', function(){ fbText.value=''; emailInput.value=''; checkFb(); checkEmail(); show(stage1); emailInput.focus(); });
+  resetLink.addEventListener('click', function(){ QS.forEach(function(q){ q.value=''; }); emailInput.value=''; checkFb(); checkEmail(); show(stage1); emailInput.focus(); });
 });
+
 
 
 /* ───── lightweight confetti ───── */
